@@ -31,7 +31,7 @@
       </div>
       <div>
         <v-row justify="center">
-          <v-dialog v-model="dialog" persistent max-width="1000px">
+          <v-dialog v-model="inscription" persistent max-width="1000px">
             <template v-slot:activator="{ on }">
               <v-btn color="white" dark v-on="on"><v-text style="color:indigo;">S'inscrire</v-text></v-btn>
             </template>
@@ -48,7 +48,6 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         label="Nom de famille*"
-                        hint="example of persistent helper text"
                         persistent-hint
                         required
                       ></v-text-field>
@@ -57,7 +56,7 @@
                       <v-text-field label="Email*" required></v-text-field>
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field label="Mot de passse*" type="password" required></v-text-field>
+                      <v-text-field label="Mot de passse*" type="password" hint="Veuillez entrer un mot de passe qui fait au moins 8 lettres" required></v-text-field>
                     </v-col>
                     <v-col cols="12">
                       <v-text-field label="Confirmer le mot de passe*" type="password" required></v-text-field>
@@ -79,17 +78,43 @@
               </v-card-text>
                 <v-card-actions>
                   <div class="flex-grow-1"></div>
-                  <v-btn color="blue darken-1" text @click="dialog = false">Fermer</v-btn>
-                  <v-btn color="blue darken-1" text @click="dialog = false">Valider</v-btn>
+                  <v-btn color="blue darken-1" text @click="inscription = false">Fermer</v-btn>
+                  <v-btn color="blue darken-1" text @click="inscription = false">Valider</v-btn>
                 </v-card-actions>
             </v-card>
           </v-dialog>
         </v-row>
       </div>
       <div>
-        <v-row justify="center">
-          <v-btn text large elevation="4"><a href="https://www.google.com" style="color:white; text-decoration:none;">Se connecter</a></v-btn>
-        </v-row>
+        <v-dialog v-model="connexion" persistent max-width="500px">
+            <template v-slot:activator="{ on }">
+              <v-btn color="indigo" dark v-on="on"><v-text style="color:white;">Se connecter</v-text></v-btn>
+            </template>
+             <v-card>
+              <v-card-title>
+                <span class="headline">Connexion</span>
+              </v-card-title>
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12">
+                      <v-text-field label="Adresse mail" required></v-text-field>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-text-field label="Mot de passse" type="password" required></v-text-field>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-card-text>
+                <v-card-actions>
+                  <div class="flex-grow-1 justify-center"></div>
+                  <v-btn color="blue darken-1" text @click="connexion = false">Fermer</v-btn>
+                  <v-btn color="blue darken-1" text @click="connexion = false">Connexion</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
       </div>
     </div>
   </v-flex>
@@ -177,6 +202,8 @@ export default {
 export default {
     data: () => ({
       dialog: false,
+      inscription: false,
+      connexion: false
     }),
   }
 var a = 5;
