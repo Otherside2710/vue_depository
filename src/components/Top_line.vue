@@ -43,10 +43,18 @@
                 <v-container>
                   <v-row>
                     <v-col cols="12" sm="6" md="4">
-                      <v-text-field label="Prénom*" required></v-text-field>
+                      <v-text-field
+                      v-model="prenom"
+                      :rules="nom"
+                      :counter="32"
+                      label="Prénom*"
+                      required></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
+                        v-model="NomDeFamille"
+                        :rules="NomDeFamilles"
+                        :counter="32"
                         label="Nom de famille*"
                         persistent-hint
                         required
@@ -56,7 +64,7 @@
                       <v-text-field label="Email*" required></v-text-field>
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field label="Mot de passse*" type="password" hint="Veuillez entrer un mot de passe qui fait au moins 8 lettres" required></v-text-field>
+                      <v-text-field label="Mot de passe*" type="password" hint="Veuillez entrer un mot de passe qui fait au moins 8 lettres" required></v-text-field>
                     </v-col>
                     <v-col cols="12">
                       <v-text-field label="Confirmer le mot de passe*" type="password" required></v-text-field>
@@ -101,7 +109,7 @@
                       <v-text-field label="Adresse mail" required></v-text-field>
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field label="Mot de passse" type="password" required></v-text-field>
+                      <v-text-field label="Mot de passe" type="password" required></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6">
                     </v-col>
@@ -203,7 +211,18 @@ export default {
     data: () => ({
       dialog: false,
       inscription: false,
-      connexion: false
+      connexion: false,
+      firstname: '',
+      nom: [
+        v => !!v || 'Veuillez entrer votre prénom',
+        v => v.length <= 32 || 'Votre prénom doit faire moins de 32 caractères'
+      ],
+      NomDeFamille: '',
+      NomDeFamilles: [
+        v => !!v || 'Veuillez entre votre nom de famille',
+        v => v.length <= 32 || 'Votre nom doit faire moins de 32 caractères'
+      ],
+
     }),
   }
 var a = 5;
