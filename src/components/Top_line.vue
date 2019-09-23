@@ -31,6 +31,7 @@
       </div>
       <div>
         <v-row justify="center">
+        <form>
           <v-dialog v-model="inscription" persistent max-width="1000px">
             <template v-slot:activator="{ on }">
               <v-btn color="white" dark v-on="on"><v-text style="color:indigo;">S'inscrire</v-text></v-btn>
@@ -105,10 +106,15 @@
                 <v-card-actions>
                   <div class="flex-grow-1"></div>
                   <v-btn color="blue darken-1" text @click="inscription = false">Fermer</v-btn>
+                  <v-btn @click="clear" color="blue darken-1" text>Réinitialiser</v-btn>
+                  <v-btn color="blue darken-1"  @click="submit" text>submit</v-btn>
                   <v-btn color="blue darken-1" text @click="inscription = false">Valider</v-btn>
+                  
+                  
                 </v-card-actions>
             </v-card>
           </v-dialog>
+         </form>
         </v-row>
       </div>
       <div>
@@ -225,12 +231,16 @@ export default {
 }
 </script>
 <script>
+
 export default {
+    $_veeValidate: {
+      validator: 'new',
+    },
     data: () => ({
       dialog: false,
       inscription: false,
       connexion: false,
-      firstname: '',
+      prenom: '',
       nom: [
         v => !!v || 'Veuillez entrer votre prénom',
         v => v.length <= 32 || 'Votre prénom doit faire moins de 32 caractères'
@@ -256,6 +266,15 @@ export default {
         v => this.Password1.value != this.Password2.value || 'Les deux mots de passes ne correspondent pas'
       ]
     }),
+    methods: {
+      clear () {
+        this.prenom = ''
+        this.NomDeFamille= ''
+        this.email = ''
+        this.Password1 = ''
+        this.Password2 = ''
+      },
+    },
   }
 var a = 5;
 </script>

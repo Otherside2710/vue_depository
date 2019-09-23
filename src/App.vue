@@ -9,6 +9,7 @@
 
 <script>
 import Topline from './components/Top_line'
+import { ValidationProvider } from 'vee-validate'
 
 export default {
   name: 'App',
