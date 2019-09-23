@@ -24,7 +24,7 @@
         <v-btn text large elevation="1" color="white">Refroidissement</v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">>Boîtier</v-btn>
+        <v-btn text large elevation="1" color="white">Boîtier</v-btn>
       </div>
       <div>
         <v-btn text large elevation="1" color="white">Clavier <br /> & souris</v-btn>
@@ -87,7 +87,9 @@
         </v-row>
       </div>
       <div>
-        <v-btn text large elevation="4"><a href="https://www.google.com" style="color:white; text-decoration:none;">Se connecter</a></v-btn>
+        <v-row justify="center">
+          <v-btn text large elevation="4"><a href="https://www.google.com" style="color:white; text-decoration:none;">Se connecter</a></v-btn>
+        </v-row>
       </div>
     </div>
   </v-flex>
