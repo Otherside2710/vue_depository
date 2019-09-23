@@ -61,13 +61,29 @@
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field label="Email*" required></v-text-field>
+                      <v-text-field
+                      v-model="email"
+                      :rules="mail"
+                      label="Email*"
+                      required
+                      ></v-text-field>
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field label="Mot de passe*" type="password" hint="Veuillez entrer un mot de passe qui fait au moins 8 lettres" required></v-text-field>
+                      <v-text-field
+                      v-model="Password1"
+                      :rules='passe1'
+                      label="Mot de passe*"
+                      type="password"
+                      hint="Veuillez entrer un mot de passe qui fait au moins 8 lettres"
+                      required></v-text-field>
                     </v-col>
                     <v-col cols="12">
-                      <v-text-field label="Confirmer le mot de passe*" type="password" required></v-text-field>
+                      <v-text-field
+                      v-model="Password2"
+                      :rules="confpass"
+                      label="Confirmer le mot de passe*"
+                      type="password"
+                      required></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-select
@@ -75,10 +91,12 @@
                         label="Âge*"
                         required
                       ></v-select>
+                        <v-checkbox label="J'accepte les conditions d'utilisations du site"></v-checkbox>
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-checkbox label="Je souhaite m'inscrire à la newsletter"></v-checkbox>
                       <v-checkbox label="Je souhaite recevoir des offres promotionnelles de la part du site et de ses partenaires"></v-checkbox>
+
                     </v-col>
                   </v-row>
                 </v-container>
@@ -222,7 +240,21 @@ export default {
         v => !!v || 'Veuillez entre votre nom de famille',
         v => v.length <= 32 || 'Votre nom doit faire moins de 32 caractères'
       ],
-
+      email: '',
+      mail: [
+        v => !!v || 'Veuillez entrer votre adresse mail',
+        v => /.+@.+\..+/.test(v) || 'Veuillez entrer une adresse mail valide'
+      ],
+      Password1: '',
+      Password2: '',
+      passe1: [
+        v => !!v || 'Veuillez entrer votre mot de passe',
+        v => v.length >= 8 || 'Mot de passe trop court',
+      ],
+      confpass: [
+        v => !!v || 'Veuillez confirmer votre mot de passe',
+        v => this.Password1.value != this.Password2.value || 'Les deux mots de passes ne correspondent pas'
+      ]
     }),
   }
 var a = 5;
