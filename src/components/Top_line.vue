@@ -2,32 +2,123 @@
 <div>
   <v-header elevation="24">
   <v-flex>
-    <div class="d-flex justify-space-between align-self-auto align-center indigo white--text" >
+    <div class="d-none d-sm-flex justify-space-between align-self-auto align-center indigo white--text" >
       <a href="http://localhost:8080" style="color:white; text-decoration:none;">
         <v-text text large class="ml-4">
           Site de Vente <br /> de composants pc
         </v-text>
       </a>
       <div>
-        <v-btn text large elevation="1" color="white">Processeurs</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">Processeurs</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in processeurs"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">Cartes <br /> Graphiques</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">Cartes <br/> Graphiques</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in CG"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">RAM</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">RAM</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in RAM"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">Stockage</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">Stockage</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in STOCKAGE"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">Refroidissement</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">Refroidissement</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in REFROIDISSEMENT"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">Boîtier</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">Boîtier</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in CASE"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
-        <v-btn text large elevation="1" color="white">Clavier <br /> & souris</v-btn>
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on }">
+            <v-btn text large elevation="1" color="white" v-on="on">Claviers <br/> & souris</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+             v-for=" (item, index) in CLAVIER"
+             :key="index"
+             @click=""
+             >
+             <v-list-item-title>{{ item.title}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
       <div>
         <v-row justify="center">
@@ -105,12 +196,10 @@
               </v-card-text>
                 <v-card-actions>
                   <div class="flex-grow-1"></div>
-                  <v-btn color="blue darken-1" text @click="inscription = false">Fermer</v-btn>
-                  <v-btn @click="clear" color="blue darken-1" text>Réinitialiser</v-btn>
-                  <v-btn color="blue darken-1"  @click="submit" text>submit</v-btn>
+                  <v-btn color="blue darken-1" text @click="inscription = false">Retour</v-btn>
+                  <v-btn color="blue darken-1" text @click="clear">Réinitialiser</v-btn>
+                  <v-btn color="blue darken-1" text @click="submit" >submit</v-btn>
                   <v-btn color="blue darken-1" text @click="inscription = false">Valider</v-btn>
-                  
-                  
                 </v-card-actions>
             </v-card>
           </v-dialog>
@@ -118,7 +207,7 @@
         </v-row>
       </div>
       <div>
-        <v-dialog v-model="connexion" persistent max-width="500px">
+        <v-dialog v-model="connexion" persistent max-width="350px">
             <template v-slot:activator="{ on }">
               <v-btn color="indigo" dark v-on="on"><v-text style="color:white;">Se connecter</v-text></v-btn>
             </template>
@@ -142,7 +231,7 @@
               </v-card-text>
                 <v-card-actions>
                   <div class="flex-grow-1 justify-center"></div>
-                  <v-btn color="blue darken-1" text @click="connexion = false">Fermer</v-btn>
+                  <v-btn color="blue darken-1" text @click="connexion = false">Retour</v-btn>
                   <v-btn color="blue darken-1" text @click="connexion = false">Connexion</v-btn>
                 </v-card-actions>
             </v-card>
@@ -151,14 +240,9 @@
     </div>
   </v-flex>
   </v-header>
-  <v-form>
-    <p>texte</p>
-    <p>texte</p>
-    <p>texte</p>
-  </v-form>
   <!-- Footer -->
   <v-footer absolute="true" elevation="5">
-    <div class="flex-grow-1"></div>
+    <div class="d-none d-sm-flex flex-grow-1"></div>
     <v-text class="align-self-baseline flex justify-center ">Application Web réalisée par Alexis Caron et William Henry. Tout droits réservés.</v-text>
     <div>&copy; {{ new Date().getFullYear() }}</div>
   </v-footer>
@@ -171,10 +255,23 @@
   </div>
   -->
   <div>
+    <v-flex>
+      <div class="d-sm-none">
+
+        <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        temporary
+        >
+        </v-navigation-drawer>
+        <p>Responsive design à venir</p>
+      </div>
+    </v-flex>
   </div>
 </div>
 </template>
 <script>
+import { ValidationProvider } from 'vee-validate'
 export default {
   data: () => ({
     ecosystem: [
@@ -264,7 +361,47 @@ export default {
       confpass: [
         v => !!v || 'Veuillez confirmer votre mot de passe',
         v => this.Password1.value != this.Password2.value || 'Les deux mots de passes ne correspondent pas'
-      ]
+      ],
+      items: [
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me 2' },
+      ],
+      processeurs: [
+        { title: 'Intel'},
+        { title: 'AMD'},
+      ],
+      CG: [
+        { title: 'Nvidia'},
+        { title: 'AMD'},
+      ],
+      RAM: [
+        { title: 'HyperX'},
+        { title: 'Corsair'},
+        { title: 'Balistic'},
+        { title: 'etc...'}
+      ],
+      STOCKAGE: [
+        { title: 'SSD'},
+        { title: 'Disque durs'},
+      ],
+      REFROIDISSEMENT: [
+        { title: 'Ventilateurs'},
+        { title: 'Ventirad'},
+        { title: 'Watercooling'},
+      ],
+      CASE: [
+        { title: 'Grand boîtier'},
+        { title: 'Boîtier de taille moyenne'},
+        { title: 'Petit boîtier'},
+      ],
+      CLAVIER: [
+        { title: 'Corsair'},
+        { title: 'Logitech'},
+        { title: 'Roccat'},
+        { title: 'Steelseries'},
+      ],
     }),
     methods: {
       clear () {
@@ -274,6 +411,7 @@ export default {
         this.Password1 = ''
         this.Password2 = ''
       },
+
     },
   }
 var a = 5;
