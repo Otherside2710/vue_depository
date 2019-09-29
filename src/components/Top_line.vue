@@ -1,6 +1,6 @@
 <template>
 <div>
-  <v-header elevation="24">
+  <v-header>
   <v-flex>
     <div class="d-none d-sm-flex justify-space-between align-self-auto align-center indigo white--text" >
       <a href="http://localhost:8080" style="color:white; text-decoration:none;">
@@ -162,6 +162,7 @@
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
+                      v-on:blur="validate"
                       v-model="Password1"
                       :rules='passe1'
                       label="Mot de passe*"
@@ -171,11 +172,13 @@
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
+                      v-on:blur="validate"
                       v-model="Password2"
                       :rules="confpass"
                       label="Confirmer le mot de passe*"
                       type="password"
                       required></v-text-field>
+                      <v-card-text><span>{{ confirmation }}</span></v-card-text>
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-select
@@ -241,7 +244,8 @@
   </v-flex>
   </v-header>
   <!-- Footer -->
-  <v-footer absolute="true" elevation="5">
+
+  <v-footer absolute="true" elevation="5" class="d-none d-sm-flex">
     <div class="d-none d-sm-flex flex-grow-1"></div>
     <v-text class="align-self-baseline flex justify-center ">Application Web réalisée par Alexis Caron et William Henry. Tout droits réservés.</v-text>
     <div>&copy; {{ new Date().getFullYear() }}</div>
@@ -254,24 +258,9 @@
     </v-badge>
   </div>
   -->
-  <div>
-    <v-flex>
-      <div class="d-sm-none">
-
-        <v-navigation-drawer
-        v-model="drawer"
-        absolute
-        temporary
-        >
-        </v-navigation-drawer>
-        <p>Responsive design à venir</p>
-      </div>
-    </v-flex>
   </div>
-</div>
 </template>
 <script>
-import { ValidationProvider } from 'vee-validate'
 export default {
   data: () => ({
     ecosystem: [
@@ -309,20 +298,6 @@ export default {
         text: 'Articles',
         href: 'https://medium.com/vuetify'
       }
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer'
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined'
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
-      }
     ]
   })
 }
@@ -334,10 +309,16 @@ export default {
       validator: 'new',
     },
     data: () => ({
+        drawer: null,
+        items: [
+          { title: 'Home', icon: 'dashboard' },
+          { title: 'About', icon: 'question_answer' },
+        ],
       dialog: false,
       inscription: false,
       connexion: false,
       prenom: '',
+      confirmation: '',
       nom: [
         v => !!v || 'Veuillez entrer votre prénom',
         v => v.length <= 32 || 'Votre prénom doit faire moins de 32 caractères'
@@ -360,7 +341,6 @@ export default {
       ],
       confpass: [
         v => !!v || 'Veuillez confirmer votre mot de passe',
-        v => this.Password1.value != this.Password2.value || 'Les deux mots de passes ne correspondent pas'
       ],
       items: [
         { title: 'Click Me' },
@@ -411,6 +391,13 @@ export default {
         this.Password1 = ''
         this.Password2 = ''
       },
+      validate: function() {
+        if( this.Password1 == this.Password2 && this.Password2.length != 0){
+          this.confirmation ='Les deux mots de passes correspondent bien';
+        } else if (this.Password1 != this.Password2){
+          this.confirmation ='Les deux mots de passes ne correspondent pas';
+        }
+    }
 
     },
   }
