@@ -1,11 +1,11 @@
 <template>
 <div>
-  <v-header>
+  <header>
   <v-flex>
-    <div class="d-none d-sm-flex justify-space-between align-self-auto align-center indigo white--text" >
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between;" class="d-none d-sm-flex justify-space-between align-self-auto align-center indigo white--text" >
       <a href="http://localhost:8080" style="color:white; text-decoration:none;">
         <v-text text large class="ml-4">
-          Site de Vente <br /> de composants pc
+          Home
         </v-text>
       </a>
       <div>
@@ -17,7 +17,7 @@
             <v-list-item
              v-for=" (item, index) in processeurs"
              :key="index"
-             @click=""
+             @click="nope"
              >
              <v-list-item-title>{{ item.title}}</v-list-item-title>
             </v-list-item>
@@ -33,7 +33,7 @@
             <v-list-item
              v-for=" (item, index) in CG"
              :key="index"
-             @click=""
+             @click="nope"
              >
              <v-list-item-title>{{ item.title}}</v-list-item-title>
             </v-list-item>
@@ -49,7 +49,7 @@
             <v-list-item
              v-for=" (item, index) in RAM"
              :key="index"
-             @click=""
+             @click="nope"
              >
              <v-list-item-title>{{ item.title}}</v-list-item-title>
             </v-list-item>
@@ -65,7 +65,7 @@
             <v-list-item
              v-for=" (item, index) in STOCKAGE"
              :key="index"
-             @click=""
+             @click="nope"
              >
              <v-list-item-title>{{ item.title}}</v-list-item-title>
             </v-list-item>
@@ -81,7 +81,7 @@
             <v-list-item
              v-for=" (item, index) in REFROIDISSEMENT"
              :key="index"
-             @click=""
+             @click="nope"
              >
              <v-list-item-title>{{ item.title}}</v-list-item-title>
             </v-list-item>
@@ -97,7 +97,7 @@
             <v-list-item
              v-for=" (item, index) in CASE"
              :key="index"
-             @click=""
+             @click="nope"
              >
              <v-list-item-title>{{ item.title}}</v-list-item-title>
             </v-list-item>
@@ -113,23 +113,21 @@
             <v-list-item
              v-for=" (item, index) in CLAVIER"
              :key="index"
-             @click=""
+             @click="nope"
              >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
+             <v-list-item-title>{{item.title}}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
       </div>
       <div>
-        <v-row justify="center">
-        <form>
-          <v-dialog v-model="inscription" persistent max-width="1000px">
+          <v-dialog v-model="inscription">
             <template v-slot:activator="{ on }">
               <v-btn color="white" dark v-on="on"><v-text style="color:indigo;">S'inscrire</v-text></v-btn>
             </template>
             <v-card>
               <v-card-title>
-                <span class="headline">Inscription</span>
+                <span class="mr-4"><v-text style="color:indigo;">Inscription</v-text></span>
               </v-card-title>
               <v-card-text>
                 <v-container>
@@ -206,13 +204,11 @@
                 </v-card-actions>
             </v-card>
           </v-dialog>
-         </form>
-        </v-row>
       </div>
       <div>
         <v-dialog v-model="connexion" persistent max-width="350px">
             <template v-slot:activator="{ on }">
-              <v-btn color="indigo" dark v-on="on"><v-text style="color:white;">Se connecter</v-text></v-btn>
+              <v-btn color="indigo" v-on="on"><v-text style="color:white;">Se connecter</v-text></v-btn>
             </template>
              <v-card>
               <v-card-title>
@@ -242,7 +238,7 @@
       </div>
     </div>
   </v-flex>
-  </v-header>
+  </header>
   <!-- Footer -->
 
   <v-footer absolute="true" elevation="5" class="d-none d-sm-flex">
@@ -258,6 +254,18 @@
     </v-badge>
   </div>
   -->
+  <div>
+     <h1>Bonjour l'application !</h1>
+  <p>
+    <!-- utilisez le composant router-link pour la navigation. -->
+    <!-- spécifiez le lien en le passant à la prop `to` -->
+    <!-- `<router-link>` sera rendu en tag `<a>` par défaut -->
+    <router-link to="/foo">Aller à Foo</router-link>
+    <br/>
+    <router-link to="/bar">Aller à Bar</router-link>
+    <router-view></router-view>
+  </p>
+  </div>
   </div>
 </template>
 <script>
@@ -377,11 +385,13 @@ export default {
         { title: 'Petit boîtier'},
       ],
       CLAVIER: [
-        { title: 'Corsair'},
-        { title: 'Logitech'},
-        { title: 'Roccat'},
-        { title: 'Steelseries'},
+        { title: 'Claviers'},
+        { title: 'Souris'},
       ],
+      LIENS: [
+        ['\"./ProcesseurIntel.vue\"'],
+        ['\"./ProcesseurAmd.vue\"']
+      ]
     }),
     methods: {
       clear () {
@@ -397,7 +407,10 @@ export default {
         } else if (this.Password1 != this.Password2){
           this.confirmation ='Les deux mots de passes ne correspondent pas';
         }
-    }
+                          },
+      nope: function() {
+          console.log('oui');
+        }
 
     },
   }

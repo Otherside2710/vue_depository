@@ -1,21 +1,22 @@
 <template>
   <v-app>
     <v-content>
+      <router-view/>
       <Topline/>
-      <Navigation/>
+      <PageA/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Topline from './components/Top_line'
-import Navigation from './components/NavigationDrawer'
+import PageA from './components/PageA'
 
 export default {
   name: 'App',
   components: {
     Topline,
-    Navigation
+    PageA
   },
   data: () => ({
     //
