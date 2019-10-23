@@ -9,116 +9,25 @@
         </v-text>
       </a>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
-            <v-btn text large elevation="1" color="white" v-on="on">Processeurs</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in processeurs"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+            <v-btn text large elevation="1" color="white">Processeurs</v-btn>
       </div>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
             <v-btn text large elevation="1" color="white" v-on="on">Cartes <br/> Graphiques</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in CG"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </div>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
             <v-btn text large elevation="1" color="white" v-on="on">RAM</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in RAM"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </div>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
             <v-btn text large elevation="1" color="white" v-on="on">Stockage</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in STOCKAGE"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </div>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
             <v-btn text large elevation="1" color="white" v-on="on">Refroidissement</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in REFROIDISSEMENT"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </div>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
             <v-btn text large elevation="1" color="white" v-on="on">Boîtier</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in CASE"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{ item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </div>
       <div>
-        <v-menu offset-y open-on-hover>
-          <template v-slot:activator="{ on }">
             <v-btn text large elevation="1" color="white" v-on="on">Claviers <br/> & souris</v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-             v-for=" (item, index) in CLAVIER"
-             :key="index"
-             @click="nope"
-             >
-             <v-list-item-title>{{item.title}}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </div>
       <div>
           <v-dialog v-model="inscription">
@@ -240,6 +149,9 @@
   </v-flex>
   </header>
   <!-- Footer -->
+<div>
+  <v-btn :to="{name: 'coucouc'}">test</v-btn>
+</div>
 
   <v-footer absolute="true" elevation="5" class="d-none d-sm-flex">
     <div class="d-none d-sm-flex flex-grow-1"></div>
@@ -254,18 +166,6 @@
     </v-badge>
   </div>
   -->
-  <div>
-     <h1>Bonjour l'application !</h1>
-  <p>
-    <!-- utilisez le composant router-link pour la navigation. -->
-    <!-- spécifiez le lien en le passant à la prop `to` -->
-    <!-- `<router-link>` sera rendu en tag `<a>` par défaut -->
-    <router-link to="/foo">Aller à Foo</router-link>
-    <br/>
-    <router-link to="/bar">Aller à Bar</router-link>
-    <router-view></router-view>
-  </p>
-  </div>
   </div>
 </template>
 <script>
@@ -350,48 +250,6 @@ export default {
       confpass: [
         v => !!v || 'Veuillez confirmer votre mot de passe',
       ],
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-      ],
-      processeurs: [
-        { title: 'Intel'},
-        { title: 'AMD'},
-      ],
-      CG: [
-        { title: 'Nvidia'},
-        { title: 'AMD'},
-      ],
-      RAM: [
-        { title: 'HyperX'},
-        { title: 'Corsair'},
-        { title: 'Balistic'},
-        { title: 'etc...'}
-      ],
-      STOCKAGE: [
-        { title: 'SSD'},
-        { title: 'Disque durs'},
-      ],
-      REFROIDISSEMENT: [
-        { title: 'Ventilateurs'},
-        { title: 'Ventirad'},
-        { title: 'Watercooling'},
-      ],
-      CASE: [
-        { title: 'Grand boîtier'},
-        { title: 'Boîtier de taille moyenne'},
-        { title: 'Petit boîtier'},
-      ],
-      CLAVIER: [
-        { title: 'Claviers'},
-        { title: 'Souris'},
-      ],
-      LIENS: [
-        ['\"./ProcesseurIntel.vue\"'],
-        ['\"./ProcesseurAmd.vue\"']
-      ]
     }),
     methods: {
       clear () {
@@ -416,3 +274,25 @@ export default {
   }
 var a = 5;
 </script>
+<style>
+#app {
+font-family: 'Avenir', Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-align: center;
+color: #2c3e50;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+li {
+display: inline-block;
+}
+
+a {
+color: #42b983;
+}
+</style>

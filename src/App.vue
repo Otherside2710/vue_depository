@@ -1,22 +1,19 @@
 <template>
-  <v-app>
+  <v-app id="app">
+    <Topline/>
     <v-content>
-      <router-view/>
-      <Topline/>
-      <PageA/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Topline from './components/Top_line'
-import PageA from './components/PageA'
 
 export default {
   name: 'App',
   components: {
-    Topline,
-    PageA
+    Topline
   },
   data: () => ({
     //
