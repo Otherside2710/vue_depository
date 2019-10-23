@@ -14,9 +14,39 @@ export default new Router({
       component: () => import('./components/PageA.vue')
     },
     {
-      path: '/coucouc',
-      name: 'coucouc',
-      component: () => import('./components/coucouc.vue')
+      path: '/Processeurs',
+      name: 'Processeurs',
+      component: () => import('./components/Processeurs.vue')
+    },
+    {
+      path: '/CartesGraphiques',
+      name: 'CartesGraphiques',
+      component: () => import('./components/CartesGraphiques.vue')
+    },
+    {
+      path: '/Ram',
+      name: 'Ram',
+      component: () => import('./components/Ram.vue')
+    },
+    {
+      path: '/Stockage',
+      name: 'Stockage',
+      component: () => import('./components/Stockage.vue')
+    },
+    {
+      path: '/Refroidissement',
+      name: 'Refroidissement',
+      component: () => import('./components/Refroidissement.vue')
+    },
+    {
+      path: '/Boitier',
+      name: 'Boitier',
+      component: () => import('./components/Boitier.vue')
+    },
+    {
+      path: '/Clavier&Souris',
+      name: 'ClavierSouris',
+      component: () => import('./components/ClavierSouris.vue')
     },
     {
       path: '*',

@@ -9,25 +9,25 @@
         </v-text>
       </a>
       <div>
-            <v-btn text large elevation="1" color="white">Processeurs</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Processeurs'}">Processeurs</v-btn>
       </div>
       <div>
-            <v-btn text large elevation="1" color="white" v-on="on">Cartes <br/> Graphiques</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'CartesGraphiques'}">Cartes <br/> Graphiques</v-btn>
       </div>
       <div>
-            <v-btn text large elevation="1" color="white" v-on="on">RAM</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Ram'}">RAM</v-btn>
       </div>
       <div>
-            <v-btn text large elevation="1" color="white" v-on="on">Stockage</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Stockage'}">Stockage</v-btn>
       </div>
       <div>
-            <v-btn text large elevation="1" color="white" v-on="on">Refroidissement</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Refroidissement'}">Refroidissement</v-btn>
       </div>
       <div>
-            <v-btn text large elevation="1" color="white" v-on="on">Boîtier</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Boitier'}">Boîtier</v-btn>
       </div>
       <div>
-            <v-btn text large elevation="1" color="white" v-on="on">Claviers <br/> & souris</v-btn>
+            <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'ClavierSouris'}">Claviers <br/> & souris</v-btn>
       </div>
       <div>
           <v-dialog v-model="inscription">
@@ -149,9 +149,6 @@
   </v-flex>
   </header>
   <!-- Footer -->
-<div>
-  <v-btn :to="{name: 'coucouc'}">test</v-btn>
-</div>
 
   <v-footer absolute="true" elevation="5" class="d-none d-sm-flex">
     <div class="d-none d-sm-flex flex-grow-1"></div>
