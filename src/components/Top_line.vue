@@ -155,14 +155,36 @@
     <v-text class="align-self-baseline flex justify-center ">Application Web réalisée par Alexis Caron et William Henry. Tout droits réservés.</v-text>
     <div>&copy; {{ new Date().getFullYear() }}</div>
   </v-footer>
-  <!--
-  <div class="text-center">
-    <v-badge>
-      <template v-slot:badge>0</template>
-      <v-icon>mdi-email</v-icon>
-    </v-badge>
-  </div>
-  -->
+
+    <!-- VERSION MOBILE DU SITE -->
+    <div class="d-flex d-sm-none flex-column" style="justify-content: center;">
+      <a href="http://localhost:8080" style="text-decoration:none;">
+        <v-text text large class="ml-4">
+          Home
+        </v-text>
+      </a>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'Processeurs'}">Processeurs</v-btn>
+      </div>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'CartesGraphiques'}">Cartes Graphiques </v-btn>
+      </div>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'Ram'}">RAM</v-btn>
+      </div>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'Stockage'}">Stockage</v-btn>
+      </div>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'Refroidissement'}">Refroidissement</v-btn>
+      </div>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'Boitier'}">Boitiers</v-btn>
+      </div>
+      <div>
+        <v-btn text large elevation="1" v-on="on" :to="{name: 'ClavierSouris'}">Claviers & Souris</v-btn>
+      </div>
+    </div>
   </div>
 </template>
 <script>
