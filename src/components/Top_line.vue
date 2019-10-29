@@ -152,37 +152,37 @@
 
   <v-footer absolute="true" elevation="5" class="d-none d-sm-flex">
     <div class="d-none d-sm-flex flex-grow-1"></div>
-    <v-text class="align-self-baseline flex justify-center ">Application Web réalisée par Alexis Caron et William Henry. Tout droits réservés.</v-text>
+    <v-text class=" align-self-baseline flex justify-center ">Application Web réalisée par Alexis Caron et William Henry. Tout droits réservés.</v-text>
     <div>&copy; {{ new Date().getFullYear() }}</div>
   </v-footer>
 
     <!-- VERSION MOBILE DU SITE -->
-    <div class="d-flex d-sm-none flex-column" style="justify-content: center;">
+    <div class="indigo darken-1 d-flex d-sm-none flex-column align-self-auto align-center" style="justify-content: center;" >
       <a href="http://localhost:8080" style="text-decoration:none;">
-        <v-text text large class="ml-4">
+        <v-text text large class="black ml-4" style="justify-content:">
           Home
         </v-text>
       </a>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'Processeurs'}">Processeurs</v-btn>
+        <v-btn class="white" color="indigo" text large elevation="1" v-on="on" :to="{name: 'Processeurs'}">Processeurs</v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'CartesGraphiques'}">Cartes Graphiques </v-btn>
+        <v-btn class="white" color="red" text large elevation="1" v-on="on" :to="{name: 'CartesGraphiques'}">Cartes Graphiques </v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'Ram'}">RAM</v-btn>
+        <v-btn class="white" color="blue" text large elevation="1" v-on="on" :to="{name: 'Ram'}">RAM</v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'Stockage'}">Stockage</v-btn>
+        <v-btn class="white" color="yellow darken-2" text large elevation="1" v-on="on" :to="{name: 'Stockage'}">Stockage</v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'Refroidissement'}">Refroidissement</v-btn>
+        <v-btn class="white" color="green" text large elevation="1" v-on="on" :to="{name: 'Refroidissement'}">Refroidissement</v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'Boitier'}">Boitiers</v-btn>
+        <v-btn class="white" color="indigo" text large elevation="1" v-on="on" :to="{name: 'Boitier'}">Boitiers</v-btn>
       </div>
       <div>
-        <v-btn text large elevation="1" v-on="on" :to="{name: 'ClavierSouris'}">Claviers & Souris</v-btn>
+        <v-btn class="white" color="red" text large elevation="1" v-on="on" :to="{name: 'ClavierSouris'}">Claviers & Souris</v-btn>
       </div>
     </div>
   </div>
@@ -293,6 +293,7 @@ export default {
   }
 var a = 5;
 </script>
+
 <style>
 #app {
 font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -313,5 +314,9 @@ display: inline-block;
 
 a {
 color: #42b983;
+}
+
+myStyle {
+background-color:"#16a085" 
 }
 </style>

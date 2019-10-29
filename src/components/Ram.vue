@@ -1,6 +1,6 @@
 <template>
-  <div>
-   <v-flex class="d-flex flex-row justify-center">
+  <div >
+   <div class="d-none d-sm-flex flex-row justify-center">
     <v-list>
             <v-list-item
                 v-for=" (item, index) in RAM_Corsair"
@@ -25,10 +25,37 @@
             <v-list-item-title>{{item.title}}</v-list-item-title>
             </v-list-item>
         </v-list>
-   </v-flex>
+   </div>
+   <div class="d-flex d-sm-none flex-column" style="justify-content: center;">
+    <v-list>
+            <v-list-item
+                v-for=" (item, index) in RAM_Corsair"
+                :key="index"
+                >
+            <v-list-item-title>{{item.title}}</v-list-item-title>
+            </v-list-item>
+        </v-list>
+        <v-list>
+            <v-list-item
+                v-for=" (item, index) in RAM_Ballistix"
+                :key="index"
+                >
+            <v-list-item-title>{{item.title}}</v-list-item-title>
+            </v-list-item>
+        </v-list>
+        <v-list>
+            <v-list-item
+                v-for=" (item, index) in RAM_HyperX"
+                :key="index"
+                >
+            <v-list-item-title>{{item.title}}</v-list-item-title>
+            </v-list-item>
+        </v-list>
+   </div>
   </div>
 </template>
 <script>
+
 export default {
   data: () => ({
     RAM_Corsair: [
