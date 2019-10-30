@@ -20,6 +20,8 @@ app.use(session({
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cors())
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'dist/')))
 
 app.get('/api/test', (req, res) => {
   console.log('coucou')
