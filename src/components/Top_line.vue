@@ -3,11 +3,9 @@
   <header>
   <v-flex>
     <div style="display:flex; flex-wrap:wrap; justify-content:space-between;" class="d-none d-sm-flex justify-space-between align-self-auto align-center indigo white--text" >
-      <a href="http://localhost:8080" style="color:white; text-decoration:none;">
-        <v-text text large class="ml-4">
-          Home
-        </v-text>
-      </a>
+      <div>
+            <v-btn text large elevation="0" color="white" v-on="on" :to="{name: 'hello'}">Home</v-btn>
+      </div>
       <div>
             <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Processeurs'}">Processeurs</v-btn>
       </div>
