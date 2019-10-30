@@ -15,6 +15,7 @@
       <div>
             <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Ram'}">RAM</v-btn>
       </div>
+      
       <div>
             <v-btn text large elevation="1" color="white" v-on="on" :to="{name: 'Stockage'}">Stockage</v-btn>
       </div>
